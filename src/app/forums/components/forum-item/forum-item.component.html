@@ -1,0 +1,14 @@
+<div class="forum_container">
+    <div class="card"  *ngFor="let forum of forums" >
+        <div class="image" [style.background-image]="'url('+forum.parent.image+')'"></div>
+        <div class="wrap_content">
+            <div class="content">
+                <div class="title">{{forum.parent.name}}</div>
+                <div class="info">
+                    <a href="{{forum.parent.link}}"><p>Переход на игру</p></a>
+                    <p routerLink="forum/{{forum.slug}}">Форум игры</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

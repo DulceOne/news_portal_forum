@@ -1,0 +1,54 @@
+.forum_container {
+    display: flex;
+    flex-wrap: wrap;
+    .card {
+        display: flex;
+        height: 150px;
+        width: 589px;
+        margin: 5px;
+        position: relative;
+        .image {
+            width: 100%;
+            border-radius: 14px;
+            background-size: 57%;
+            background-position: left;    
+        }
+        .wrap_content {
+            position: absolute;
+            right: 0px;
+            height: 100%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(to right, #00000000 10%, #000000 39%);
+            border-radius: 0px 14px 14px 0px;
+            .content {
+                height: 100%;
+                width: 50%;
+                margin-left: auto;
+                padding: 10px;
+                .title {
+                    font-weight: bold;
+                    text-align: center;
+                    color: #FF5722;
+                    letter-spacing: 2px;
+                    border-bottom: 1px solid #607D8B;
+                }
+                .info {
+                    color: white;
+                    cursor: pointer;
+                    text-align: right;
+                    padding: 5px;
+                    a {
+                        text-decoration: none;
+                        color: white;
+                    }
+                    p {
+                        &:hover {
+                            color: #FF5722;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
