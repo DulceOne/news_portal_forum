@@ -1,3 +1,4 @@
-<div class="content"  *ngFor="let item of post">
-    <!-- <div class="name">{{item.name}}</div> -->
+<div class="post"  *ngIf="post">
+    <div class="name">{{post.name}}</div>
+    <div class="content">{{post.content}}</div>
 </div>

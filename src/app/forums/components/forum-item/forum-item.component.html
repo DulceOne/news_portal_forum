@@ -6,7 +6,7 @@
                 <div class="title">{{forum.parent.name}}</div>
                 <div class="info">
                     <a href="{{forum.parent.link}}"><p>Переход на игру</p></a>
-                    <p routerLink="forum/{{forum.slug}}">Форум игры</p>
+                    <p (click)="setBacground(forum.background)" routerLink="forum/{{forum.slug}}">Форум игры</p>
                 </div>
             </div>
         </div>

@@ -28,7 +28,6 @@ export class PostComponent implements OnInit {
   getPost() {
     this.http.get(`${EApiUrls.FORUMS}/forum/${this.forum_slug}/them/${this.them_slug}/posts/${this.post_slug}`).subscribe((value: IPost) => {
       this.post = value
-      console.log(this.post)
     },
     error => {
 

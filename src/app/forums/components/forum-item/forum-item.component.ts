@@ -3,6 +3,7 @@ import { HttpService } from '../../../service/http.service';
 import { EApiUrls } from '../../../core/enums/api-urls.enums';
 import { IForums } from '../../../core/interfaces/forums.inteface';
 import { IResponse } from '../../../core/interfaces/response.interface';
+import { TransfertService } from '../../../core/services/transfert.service'
 
 @Component({
   selector: 'app-forum-item',
@@ -12,16 +13,20 @@ import { IResponse } from '../../../core/interfaces/response.interface';
 export class ForumItemComponent implements OnInit {
   public forums: IForums[] 
 
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private transfert: TransfertService) { }
 
   ngOnInit() {
     this.getForums()
   }
+  
+  setBacground(item) {
+  }
 
-  getForums() {
+  getForums() { 
     this.http.get(EApiUrls.FORUMS).subscribe((value: IResponse) =>{
       this.forums = value.data
       console.log( value)
+
     },
     error => {
       // error - объект ошибки
