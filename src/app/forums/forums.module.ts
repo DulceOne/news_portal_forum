@@ -8,6 +8,9 @@ import { ThemItemComponent } from './components/forum/them-item/them-item.compon
 import { PostsComponent } from './components/posts/posts.component';
 import { PostItemComponent } from './components/posts/post-item/post-item.component';
 import { PostComponent } from './components/post/post.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -16,8 +19,17 @@ const routes: Routes = [
     component: ForumsComponent,
      children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'forums',
+      },
+      {
         path: 'forums', 
         component: ForumItemComponent
+      },
+      {
+        path: 'login', 
+        component: LoginComponent
       },
       {
         path: 'forums/forum/:id', 
@@ -43,9 +55,12 @@ const routes: Routes = [
     ThemItemComponent,
     PostsComponent,
     PostItemComponent,
-    PostComponent
+    PostComponent,
+    CommentComponent,
+    LoginComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     RouterModule.forChild(routes)
   ]

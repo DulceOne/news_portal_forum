@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ForumsModule } from './forums/forums.module'
+import { ForumsModule } from './forums/forums.module';
+
 
 const routes: Routes = [
   {

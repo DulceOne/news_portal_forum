@@ -4,6 +4,8 @@ import { HttpService } from '../../../service/http.service';
 import { EApiUrls } from '../../../core/enums/api-urls.enums';
 import { IResponse } from '../../../core/interfaces/response.interface';
 import { IPost } from '../../../core/interfaces/post.interface';
+import { TransfertService } from '../../../core/services/transfert.service';
+import { IForums } from '../../../core/interfaces/forums.inteface';
 
 
 @Component({
@@ -16,12 +18,17 @@ export class PostsComponent implements OnInit {
   public them_slug: ActivatedRoute;
   public posts: IPost[]
 
-  constructor(private http: HttpService,private activateRoute: ActivatedRoute) { }
+  constructor(
+    private http: HttpService,
+    private activateRoute: ActivatedRoute,
+    private transfert: TransfertService
+    ) { }
 
   ngOnInit() {
     this.forum_slug = this.activateRoute.snapshot.params['forum_slug'];
     this.them_slug = this.activateRoute.snapshot.params['them_slug'];
     this.getPosts()
+    this.getForum()
   }
 
   getPosts() {
@@ -30,6 +37,15 @@ export class PostsComponent implements OnInit {
     },
     error => {
 
+    });
+  }
+
+  getForum() {
+    this.http.get(`${EApiUrls.FORUMS}/${this.forum_slug}`).subscribe((value: IForums) =>{
+      this.transfert.setBackground(value.background)
+    },
+    error => {
+      // error - объект ошибки
     });
   }
 

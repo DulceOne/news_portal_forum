@@ -2,3 +2,4 @@
     <div class="name">{{post.name}}</div>
     <div class="content">{{post.content}}</div>
 </div>
+<app-comment [comment]="comment" *ngFor="let comment of comments"></app-comment>

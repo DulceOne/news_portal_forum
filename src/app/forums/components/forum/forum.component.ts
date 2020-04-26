@@ -4,8 +4,9 @@ import { HttpService } from '../../../service/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IThems } from '../../../core/interfaces/theme.interface';
 import { IResponse } from '../../../core/interfaces/response.interface';
-import { TransfertService } from '../../../core/services/transfert.service'
-import { IForums } from '../../../core/interfaces/forums.inteface'
+import { TransfertService } from '../../../core/services/transfert.service';
+import { IForums } from '../../../core/interfaces/forums.inteface';
+
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.component.html',
@@ -40,7 +41,6 @@ export class ForumComponent implements OnInit {
   getForum() {
     this.http.get(`${EApiUrls.FORUMS}/${this.id}`).subscribe((value: IForums) =>{
       this.transfert.setBackground(value.background)
-      console.log(value.background)
     },
     error => {
       // error - объект ошибки
