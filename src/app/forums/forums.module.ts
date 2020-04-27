@@ -11,6 +11,7 @@ import { PostComponent } from './components/post/post.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditorComponent } from '../core/libs/editor/editor.component'
 
 
 const routes: Routes = [
@@ -58,6 +59,7 @@ const routes: Routes = [
     PostComponent,
     CommentComponent,
     LoginComponent,
+    EditorComponent
   ],
   imports: [
     ReactiveFormsModule,
