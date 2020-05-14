@@ -1,6 +1,10 @@
 <div class="wrapper">
     <div class="">Your content will need to be approved by a moderator</div>
     <form action="" [formGroup]="editorForm">
+        <div class="title"  *ngIf="nameComponent">
+            <div class="name">TITLE</div>
+            <input type="text" name="" id="" formControlName="title">
+        </div>
         <input type="text" class="inp" formControlName="firstName"> 
         <div class="btn" (click)="onSubmitForm()">Отправить</div>  
     </form>

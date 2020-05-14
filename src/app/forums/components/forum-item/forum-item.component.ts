@@ -18,15 +18,11 @@ export class ForumItemComponent implements OnInit {
   ngOnInit() {
     this.getForums()
   }
-  
-  setBacground(item) {
-  }
 
   getForums() { 
     this.http.get(EApiUrls.FORUMS).subscribe((value: IResponse) =>{
       this.forums = value.data
-      console.log( value)
-
+      this.transfert.setBackground("none")
     },
     error => {
       // error - объект ошибки

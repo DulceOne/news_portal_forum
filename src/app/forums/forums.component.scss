@@ -1,7 +1,39 @@
 .forums {
     // width: 1200px;
     width: 88%;
-    background: #c0bebe;
+    // background: white;
     margin: auto;
     padding: 10px;
+    margin-top: 46px;
+    .wrapper {
+        padding: 6px 10px 6px 10px;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        .nav {
+            display: flex;
+            .router {
+                cursor: pointer;
+                &:hover {
+                    color: #2196F3;
+                }
+            }
+            .nav_container {
+                display: flex;
+                span {
+                    padding: 0px 5px 0px 5px;
+                }
+                .container {
+                    display: flex;
+                }
+            }
+        }
+        .create_post {
+            font-weight: bold;
+            &:hover {
+                cursor: pointer;
+                color: orange;
+            }
+        }
+    }
 }

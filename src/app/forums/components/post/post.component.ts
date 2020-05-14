@@ -7,7 +7,8 @@ import { TransfertService } from '../../../core/services/transfert.service';
 import { IForums } from '../../../core/interfaces/forums.inteface';
 import { IComment } from '../../../core/interfaces/comment.interface';
 import { IResponse } from '../../../core/interfaces/response.interface';
-
+import { ENavigation } from '../../../core/enums/navigation.enums';
+import { INavigation } from '../../../core/interfaces/navigation.interface';
 
 
 @Component({
@@ -17,11 +18,13 @@ import { IResponse } from '../../../core/interfaces/response.interface';
 })
 
 export class PostComponent implements OnInit {
-  public forum_slug: ActivatedRoute;
-  public them_slug: ActivatedRoute;
-  public post_slug: ActivatedRoute;
+  public forum_slug: string;
+  public them_slug: string;
+  public post_slug: string;
   public post: IPost;
   public comments: IComment[];
+  public navigation: INavigation[] = []
+
 
   constructor(
     private http: HttpService,
@@ -33,6 +36,25 @@ export class PostComponent implements OnInit {
     this.forum_slug = this.activateRoute.snapshot.params['forum_slug'];
     this.them_slug = this.activateRoute.snapshot.params['them_slug'];
     this.post_slug = this.activateRoute.snapshot.params['post'];
+    this.navigation = [
+      {
+        type: ENavigation.FORUM, 
+        value: this.forum_slug,
+        url: `/forums/forum/${this.forum_slug}`,
+        stausPost: false
+      },
+      {
+        type: ENavigation.THEM, 
+        value: this.them_slug,
+        url: `/forums/forum/${this.forum_slug}/them/${this.them_slug}`
+      },
+      {
+        type: ENavigation.POST, 
+        value: this.post_slug,
+        url: `/forums/forum/${this.forum_slug}/them/${this.them_slug}/${this.post_slug}`
+      },
+    ]
+    this.transfert.setNavigation(this.navigation)
     this.getPost()
     this.getForum()
   }

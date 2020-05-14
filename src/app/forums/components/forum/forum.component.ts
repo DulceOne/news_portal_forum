@@ -6,6 +6,9 @@ import { IThems } from '../../../core/interfaces/theme.interface';
 import { IResponse } from '../../../core/interfaces/response.interface';
 import { TransfertService } from '../../../core/services/transfert.service';
 import { IForums } from '../../../core/interfaces/forums.inteface';
+import { ENavigation } from '../../../core/enums/navigation.enums';
+import { INavigation } from '../../../core/interfaces/navigation.interface';
+
 
 @Component({
   selector: 'app-forum',
@@ -14,17 +17,21 @@ import { IForums } from '../../../core/interfaces/forums.inteface';
 })
 export class ForumComponent implements OnInit {
 
-  public id: ActivatedRoute;
+  public id: string;
   public thems: IThems[]
+  public navigation: INavigation[] = []
 
   constructor(
     private http: HttpService,
     private activateRoute: ActivatedRoute,
+    private router: Router,
     private transfert: TransfertService
-  ) { }
+  ) {  }
 
   ngOnInit() {
     this.id = this.activateRoute.snapshot.params['id'];
+    this.navigation.push({type: ENavigation.FORUM, value: this.id, url: this.router.url, stausPost: false})
+    this.transfert.setNavigation(this.navigation)
     this.getThems()
     this.getForum()
   }

@@ -11,7 +11,9 @@ import { PostComponent } from './components/post/post.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EditorComponent } from '../core/libs/editor/editor.component'
+import { EditorComponent } from '../core/libs/editor/editor.component';
+import { HeaderComponent } from '../core/Ui/header/header.component';
+import { CreatePostComponent } from './components/create-post/create-post.component'
 
 
 const routes: Routes = [
@@ -44,6 +46,10 @@ const routes: Routes = [
         path: 'forums/forum/:forum_slug/them/:them_slug/:post', 
         component: PostComponent
       },
+      {
+        path: 'forums/forum/:forum_slug/them/:them_slug/create/post', 
+        component: CreatePostComponent
+      },
     ]
   },
 ];
@@ -59,7 +65,9 @@ const routes: Routes = [
     PostComponent,
     CommentComponent,
     LoginComponent,
-    EditorComponent
+    EditorComponent,
+    HeaderComponent,
+    CreatePostComponent
   ],
   imports: [
     ReactiveFormsModule,

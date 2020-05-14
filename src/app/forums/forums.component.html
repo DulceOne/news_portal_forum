@@ -1,3 +1,22 @@
+<app-header></app-header>
 <div class="forums">
+    <div class="wrapper">
+        <div class="nav">
+            <div class="router" (click)="homeRouter()" routerLink="/forums">Home</div>
+            <div *ngIf="navigation" class="nav_container">
+                <div *ngFor="let item of navigation" class="container">
+                    <span>></span>
+                    <div class="router" routerLink="{{item.url}}">
+                        {{item.value}}
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="create_post"  *ngIf="statusPost">
+                <div class="div" *ngFor="let item of url" (click)="createPostRouter()" routerLink="{{item.url}}/create/post">
+                    + Create post
+                </div>
+            </div>
+    </div>
     <router-outlet></router-outlet>
 </div>
