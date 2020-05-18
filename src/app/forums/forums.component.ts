@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransfertService } from '../core/services/transfert.service';
 import { INavigation } from '../core/interfaces/navigation.interface';
+import { ENavigation } from '../core/enums/navigation.enums';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -41,7 +42,7 @@ export class ForumsComponent implements OnInit {
 
   getUrl() {
     this.url = this.navigation.filter(item => {
-      return item.type === 1
+      return item.type ===  ENavigation.THEM
     })
   }
 

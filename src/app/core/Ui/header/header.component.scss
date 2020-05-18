@@ -2,6 +2,9 @@
     background-color: #2196F3;
     padding: 20PX;
     position: relative;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
     .logo_wrapper {
         background-color: #795548;
         padding: 10px;
@@ -12,5 +15,40 @@
         position: absolute;
         transform: skewX(-12deg);
         letter-spacing: 7px;
+    }
+    .container {
+        position: relative;
+        .user {
+            cursor: pointer;
+            display: flex;
+            .simbol {
+                transform: rotate(90deg);
+                color: #ffffff;
+                font-weight: bold;
+                padding: 0px 5px 0px 5px;
+            }
+        }
+        .pop-up {
+            position: absolute;
+            background-color: white;
+            width: 200px;
+            right: -3px;
+            border: 1px solid #607D8B;
+            top: 37px;
+            z-index: 999;
+            .info {
+                padding: 10px;
+
+                display: flex;
+                justify-content: space-between;
+                padding: 5px;
+                border-bottom: 1px solid #607D8B;
+                img {
+                    width: 40px;    
+                    border: 1px solid #000000;
+                    padding: 2px;
+                }
+            }
+        }
     }
 }

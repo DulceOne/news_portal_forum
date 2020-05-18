@@ -14,7 +14,6 @@ export class HttpService {
   public httpOptions = {
     headers: new HttpHeaders({
       'x-access-token': localStorage.getItem('token') || 'x-access-token',
-      'Content-Type':  'application/json',
     })
   };
 
@@ -43,7 +42,6 @@ export class HttpService {
     return {
       headers: new HttpHeaders({
       'x-access-token': localStorage.getItem('token') || 'x-access-token',
-      'Content-Type':  'application/json',
       })
     }
   }

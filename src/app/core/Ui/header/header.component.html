@@ -1,4 +1,21 @@
 <div class="header">
     <div class="logo_wrapper">Logo</div>
     <div class="menu"></div>
+
+    <div class="container">
+
+        <div class="user" *ngIf="user" (click)="popUp=!popUp">
+            {{user.username}}
+            <div class="simbol">&#62;</div>
+        </div>
+        <div class="pop-up" *ngIf="popUp">
+            <div class="info">
+                <div class="email">{{user.email}}</div>
+                <img src="{{user.avatar}}" alt="">
+            </div>
+            <div class="">Profile</div>
+            <div class="" (click)="clearStorrage()">SignOut</div>
+        </div>
+    </div>
+    <div class="login-btn" *ngIf="!user">LOGIN</div>
 </div>
